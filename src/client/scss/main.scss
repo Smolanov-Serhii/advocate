@@ -1,0 +1,81 @@
+@import "start-params";
+@import "vars";
+@import "swiper-bundle";
+//@import "fresco";
+//@import "selectric";
+//@import "jquery.mCustomScrollbar";
+@import "aos";
+//@mixin opensans {
+//  font-family: 'Open Sans', sans-serif;
+//}
+//
+//@mixin oswald {
+//  font-family: 'Oswald', sans-serif;
+//}
+
+// GENERAL DOCUMENT STYLES
+$basefont: 18;
+$fon: $basefont / 10;
+* {
+  box-sizing: border-box;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+}
+img{
+  max-width: 100%;
+}
+.naitre{
+  overflow: hidden;
+}
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  filter: grayscale(100);
+}
+.locked{
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+html{
+
+}
+.main-container{
+  padding: 0 80vw * $px;
+  @media all and (max-width: 1400px){
+    padding: 0 50px;
+  }
+  @media all and (max-width: 1024px){
+    padding: 0 35px;
+  }
+  @media all and (max-width: 500px){
+    padding: 0 20px;
+  }
+}
+.padding-left{
+  padding-left: 80vw * $px;
+  @media all and (max-width: 1400px){
+    padding-left: 50px;
+  }
+  @media all and (max-width: 1024px){
+    padding-left: 35px;
+  }
+  @media all and (max-width: 500px){
+    padding-left: 20px;
+  }
+}
+.padding-right{
+  padding-right: 80vw * $px;
+  @media all and (max-width: 1400px){
+    padding-right: 50px;
+  }
+  @media all and (max-width: 1024px){
+    padding-right: 35px;
+  }
+  @media all and (max-width: 500px){
+    padding-right: 20px;
+  }
+}
