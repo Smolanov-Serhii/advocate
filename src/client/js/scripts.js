@@ -25,6 +25,70 @@ $( document ).ready(function() {
         }
         return(setStr);
     }
+
+
+    var time = 2,
+        cc = 1;
+    $(window).scroll(function() {
+        $('#about').each(function() {
+            var
+                cPos = $(this).offset().top,
+                topWindow = $(window).scrollTop();
+            viewportHeight = $(window).height();
+            if ((topWindow + viewportHeight) - cPos > viewportHeight / 6) {
+                if (cc < 2) {
+                    $(".number").addClass("viz");
+                    $('span').each(function() {
+                        var
+                            i = 1,
+                            num = $(this).data('num'),
+                            step = 1000 * time / num,
+                            that = $(this),
+                            int = setInterval(function() {
+                                if (i <= num) {
+                                    that.html(i);
+                                } else {
+                                    cc = cc + 2;
+                                    clearInterval(int);
+                                }
+                                i++;
+                            }, step);
+                    });
+                }
+            }
+        });
+    });
+
+    function slidescreen() { h = $(window).height(); $(".screen").css('height', h); };
+
+    $(window).resize(slidescreen);
+    $(document).ready(slidescreen);
+
+    $(document).bind('mousewheel DOMMouseScroll', function(event) { scroll(event); });
+
+    var num = 1;
+    var scrolling = false;
+
+    function scroll(event) {
+        // event.preventDefault();
+        if (!scrolling) {
+            scrolling = true;
+            if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+                num--;
+                num = num < 1 ? 1 : num;
+            } else {
+                num++;
+                num = num > $(".screen").length ? $(".screen").length : num;
+            }
+            var Elemid = $(".screen" + num).prop("id");
+            var scrollTop = $('#' + Elemid).offset().top;
+            var LeftMenu = $('#left-menu').find('a[href^="#' + Elemid + '"]').closest('li');
+            $('#left-menu li').removeClass('active');
+            LeftMenu.addClass('active');
+            $(document).scrollTop(scrollTop);
+            scrolling = false;
+        }
+    }
     AOS.init({
         // Global settings:
         disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -45,36 +109,8 @@ $( document ).ready(function() {
         anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
     });
-    if ($(".main-banner__container").length){
-        var swiper = new Swiper(".main-banner__container", {
-            scrollbar: {
-                el: ".main-banner__controls .pagination",
-                hide: true,
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-        });
-    };
-    if ($(".quize").length){
-        function quizeslider(){
-            var quize = new Swiper(".quize__container .swiper-container", {
-                autoHeight: true,
-                scrollbar: {
-                    el: ".quize .pagination",
-                    hide: true,
-                },
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
-                navigation: {
-                    nextEl: ".quize__navigation .next",
-                    prevEl: ".quize__navigation .prev",
-                },
-            });
-        }
+    if ($("#left-menu").length){
+        $('#left-menu li:first-child').addClass('active');
     };
 
     if ($(".popup-fade").length){
@@ -126,38 +162,12 @@ $( document ).ready(function() {
 
 
         });
-        $(".js-zapisatsia").click( function(e) {
-            var CurrentAbonement = $(this).closest('.best__item').find('.best__item-title').html();
-            $('input.zakaz').val(CurrentAbonement);
-            $('body').addClass('locked');
-            $('.popup-fade').fadeIn(300);
-            $('.popup-zapisatsa').fadeIn(300);
-        });
-        $(".close-zapisatsa").click( function(e) {
-            $('body').removeClass('locked');
-            $('.popup-fade').fadeOut(300);
-            $('.popup-zapisatsa').fadeOut(300);
-        });
-        $(".js-callback").click( function(e) {
-            $('body').addClass('locked');
-            $('.popup-fade').fadeIn(300);
-            $('.popup-callback').fadeIn(300);
-        });
         $(".close-callback").click( function(e) {
             $('body').removeClass('locked');
             $('.popup-fade').fadeOut(300);
             $('.popup-callback').fadeOut(300);
         });
-        // $(".js-try").click( function(e) {
-        //     $('body').addClass('locked');
-        //     $('.popup-fade').fadeIn(300);
-        //     $('.popup-try').fadeIn(300);
-        // });
-        // $(".close-try").click( function(e) {
-        //     $('body').removeClass('locked');
-        //     $('.popup-fade').fadeOut(300);
-        //     $('.popup-try').fadeOut(300);
-        // });
+
         document.addEventListener( 'wpcf7mailsent', function( event ) {
             $('body').removeClass('locked');
             $('.popup-fade > div').fadeOut(300);

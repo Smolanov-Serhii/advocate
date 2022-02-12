@@ -7,140 +7,204 @@
 get_header();
 $post_id = get_the_ID();
 ?>
-
-<div class="section sec0 py-0 main-title-paralax"
-     style="background-image: url(<?php echo the_field('izobrazhenie_dlya_banera', $post_id) ?>); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
-    <div class="bg-video">
-        <video autoplay="" muted="" loop="" id="myVideo">
-            <source src="<?php echo the_field('videofajl_dlya_banera', $post_id) ?>" type="video/mp4">
-        </video>
-    </div>
-    <div class="container main-title-paralax__content">
-        <div class="row justify-content-center align-items-center">
-            <div class="col text-center">
-                <div class="main-title-paralax__header">
-                    <div class="logo">
-                        <?php echo the_field('zagolovok_v_bloke_h1', $post_id) ?>
-                    </div>
-
-                    <h1 class="text-white mb-0"><?php echo the_field('zagolovok_v_bloke_h1', $post_id) ?>
-                        <?php
-                        if(get_field('podzagolovok_v_banner', $post_id)){
-                            ?>
-                            <span
-                                class="d-block"><?php echo the_field('podzagolovok_v_banner', $post_id) ?>
-                                </span>
-                            <?php
-                        }
-                        ?>
-
-                    </h1>
-                </div>
-                <div class="btn-main" data-aos="fade-up">
-                    <div class="js-<?php echo the_field('rol_knopki', $post_id); ?> btn btn-secondary btn-lg text-primary">
-                        <span><?php echo the_field('nadpis_na_knopke_banera', $post_id) ?></span>
+<main id="main" class="main">
+    <aside id="aside" class="aside">
+        <div class="aside__container">
+            <div class="wrapper">
+                <div class="position">
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'Top-Menu',
+                            'menu_id'        => 'left-menu',
+                        )
+                    );
+                    ?>
+                    <div class="aside__socials">
+                        <a href="<?php the_field('instagram', 'options');?>" class="aside__socials-item">
+                            <img src="<?php echo get_template_directory_uri()?>/img/insta.svg" alt="Інстаграм">
+                        </a>
+                        <a href="<?php the_field('facebook', 'options');?>" class="aside__socials-item">
+                            <img src="<?php echo get_template_directory_uri()?>/img/fb.svg" alt="">
+                        </a>
+                        <a href="<?php the_field('twitter', 'options');?>" class="aside__socials-item">
+                            <img src="<?php echo get_template_directory_uri()?>/img/tw.svg" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<section class="about__content content-container">
-    <h2 class="about__title text-primary">
-        <?php echo the_field('zagolovok_vseh_kejsov', $post_id) ?>
-    </h2>
-    <div class="about__cases">
-        <?php if (have_rows('kejsy', $post_id)): ?>
-            <?php while (have_rows('kejsy', $post_id)): the_row();
-                $image = get_sub_field('izobrazhenie_dlya_kejsa');
-                $exerpt = get_sub_field('kratkoe_opisanie_kejsa');
-                $fullcontent = get_sub_field('polnoe_opisanie_kejsa');
-                $title = get_sub_field('zagolovok_dlya_odnogo_kejsa');
-                $alt = get_sub_field('seo_opisanie_dlya_kartinki');
-                ?>
+
+    </aside>
+    <section id="banner" class="banner screen screen1">
+        <div class="banner__design">
+            <img src="<?php echo get_template_directory_uri()?>/img/design-banner.svg" alt="Декорацыя сайта">
+        </div>
+        <div class="banner__bg">
+            <img src="<?php the_field('zobrazhennya_na_fon', $post_id);?>" alt="<?php echo the_field('title'. $post_id);?>">
+        </div>
+        <div class="banner__content">
+            <h2 class="banner__untitle">
+                <?php the_field('undertitle', $post_id);?>
+            </h2>
+            <h1 class="banner__title">
+                <?php the_field('title', $post_id);?>
+            </h1>
+            <?php the_field('subtitle', $post_id);?>
+            <div class="banner__button button-stroke">
+                <?php the_field('napis_na_knopczi', $post_id);?>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about screen screen2">
+        <div class="about__container main-container">
+            <h3 class="about__untitle section-untitle">
+                <?php the_field('nadzagolovok-about', $post_id);?>
+            </h3>
+            <h2 class="about__title section-title">
+                <?php the_field('zagolovok-about', $post_id);?>
+            </h2>
+            <div class="about__list">
                 <div class="about__item">
-                    <div class="about__text-part">
-                        <h3 class="about__item-title text-primary"  data-aos="fade-up">
-                            <?php echo $title; ?>
-                        </h3>
-                        <div class="about__item-exerpt"  data-aos="fade-up">
-                            <?php echo $exerpt; ?>
-                        </div>
-                        <div class="about__item-full" style="display: none;">
-                            <div class="about__item-full-container">
-                                <div class="close-item-about">
-                                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="15.3867" y="4.89569" width="0.989092" height="14.8364" transform="rotate(45 15.3867 4.89569)" fill="#191919"></rect>
-                                        <rect x="16.0859" y="15.3867" width="0.989092" height="14.8364" transform="rotate(135 16.0859 15.3867)" fill="#191919"></rect>
-                                    </svg>
+                    <div class="about__desc">
+                        <?php the_field('persha_kolonka', $post_id);?>
+                    </div>
+                </div>
+                <div class="about__item">
+                    <div class="about__desc">
+                        <?php the_field('druga_kolonka', $post_id);?>
+                    </div>
+                </div>
+            </div>
+            <div class="about__digits">
+                <?php
+                if( have_rows('czifri', $post_id) ):
+                    while( have_rows('czifri', $post_id) ) : the_row();
+                        $digit = get_sub_field('czifra-value');
+                        $devide = get_sub_field('znak_pyslya_czifri');
+                        $desc = get_sub_field('tekst_pyd_czifroyu');
+                        ?>
+                            <div class="about__digits-item">
+                                <div class="digit">
+                                    <span class="number" data-num="<?php echo $digit?>"></span><?php echo $devide?>
                                 </div>
-                                <div class="about__item-full-wrapper">
-                                    <?php echo $fullcontent; ?>
+                                <div class="desc">
+                                    <?php echo $desc?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="about__show-item js-show-case-item text-primary"  data-aos="fade-up">
-                            <?php echo the_field('podrobnee', 'options'); ?>
-                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 0.838313L9.1879 -3.54978e-08L5.57423 3.73048L5.00002 4.33171L4.42574 3.73048L0.812097 -4.01616e-07L-3.66438e-08 0.838313L5.00002 6L10 0.838313Z" fill="#1D8FBD"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="about__img-part"  data-aos="fade-up">
-                        <img src="<?php echo $image; ?>" alt="<?php echo $alt; ?>">
-                        <div class="ramka">
-                            <svg width="100%" height="100%" viewBox="0 0 780 516" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.5" y="0.5" width="779" height="515" stroke="#1D8FBD"/>
-                            </svg>
-                        </div>
+                        <?php
+                    endwhile;
+                endif;
+                ?>
+            </div>
+        </div>
+    </section>
+    <section id="branch" class="branch screen screen3 main-container">
+        <div class="branch__image">
+            <img src="<?php the_field('zobrazhennya_na_fon-branch', $post_id);?>" alt="<?php the_field('zagolovok-branch', $post_id);?>">
+        </div>
+        <div class="branch__container">
+            <h3 class="branch__untitle section-untitle">
+                <?php the_field('nadzagolovok-branch', $post_id);?>
+            </h3>
+            <h2 class="branch__title section-title">
+                <?php the_field('zagolovok-branch', $post_id);?>
+            </h2>
+            <div class="branch__list">
+                <?php
+                $counter = 0;
+                $class = '';
+                $args = array(
+                    'post_type' => 'directions',
+                    'showposts' => "-1", //сколько показать статей
+                    'orderby' => "menu_order", //сортировка по дате
+                    'caller_get_posts' => 1);
+                $my_query = new wp_query($args);
+                if ($my_query->have_posts()) {
+                    while ($my_query->have_posts()) {
+                        $my_query->the_post();
+                        $postpers_id = get_the_ID();
+                        $image = get_field('zobrazhennya_na_golovnu', $postpers_id);
+                        $counter++;
+                        if ($counter > 4){$class='hidden';}
+                            ?>
+                        <a href="<?php the_permalink();?>" class="branch__item <?php echo $class?>">
+                            <div class="branch__image">
+                                <img src="<?php echo $image;?>" alt="<?php the_title();?>">
+                            </div>
+                            <h4 class="branch__item-title">
+                                <?php the_title();?>
+                            </h4>
+                            <div class="branch__item-lnk">
+                                Дізнатись більше
+                                <svg width="32" height="8" viewBox="0 0 32 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M28.1716 0.464562L31.3536 3.64654C31.5488 3.8418 31.5488 4.15839 31.3536 4.35365L28.1716 7.53563C27.9763 7.73089 27.6597 7.73089 27.4645 7.53563C27.2692 7.34037 27.2692 7.02378 27.4645 6.82852L29.7929 4.5001H0V3.5001H29.7929L27.4645 1.17167C27.2692 0.976407 27.2692 0.659824 27.4645 0.464562C27.6597 0.2693 27.9763 0.2693 28.1716 0.464562Z" fill="#4E6488"/>
+                                </svg>
+
+                            </div>
+                        </a>
+                    <?php
+                    }
+                }
+                wp_reset_query(); ?>
+            </div>
+            <?php
+            if ($counter > 4){
+                ?>
+                <div class="branch__button">
+                    <div class="branch__show button-stroke js-show">
+                        Дивитись усі послуги
                     </div>
                 </div>
-            <?php endwhile; ?>
-        <?php endif; ?>
-    </div>
-    <div class="about__buttons">
-        <div class="btn btn-outline-primary js-<?php echo the_field('rol_levoj_knopki', $post_id); ?>">
-            <span><?php echo the_field('nadpis_na_levoj_knopke', $post_id); ?></span>
-        </div>
-        <a class="btn btn-primary" href="<?php echo the_field('raspisanie', 'options'); ?>">
-            <span><?php echo the_field('raspisanie', 'options'); ?></span>
-        </a>
-    </div>
-</section>
-<section class="partners"  data-aos="fade-up">
-    <h2 class="partners__title title text-primary">
-        <?php echo the_field('zagolovok_nashi_partnyory', $post_id) ?>
-    </h2>
-    <div class="section sec9 bg-white">
-        <div class="container-fluid position-absolute ">
-            <div class="row bg-white align-items-center">
                 <?php
-                if (have_rows('karusel_logotipov', $post_id)): ?>
-                    <?php while (have_rows('karusel_logotipov', $post_id)): the_row();
-                        $image = get_sub_field('logotip_partnyora');
-                        $title = get_sub_field('opisanie_partnyora_seo');
-                        $link = get_sub_field('ssylka_na_logotip'); ?>
-                        <?php
-                        if($link){
-                            ?>
-                            <a href="<?php echo $link;?>"><img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-fluid"></a>
-                            <?php
-                        } else {
-                            ?>
-                            <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-fluid">
-                            <?php
-                        }
+            }
+            ?>
+        </div>
+    </section>
+    <section id="pluses" class="pluses screen screen4 main-container">
+        <div class="pluses__design">
+            <img src="<?php echo get_template_directory_uri()?>/img/design-pluses.svg" alt="Декорацыя сайта">
+        </div>
+        <div class="pluses__container">
+            <h3 class="pluses__untitle section-untitle">
+                <?php the_field('nadzagolovok-pluses', $post_id);?>
+            </h3>
+            <h2 class="pluses__title section-title">
+                <?php the_field('zagolovok-pluses', $post_id);?>
+            </h2>
+            <div class="pluses__list">
+                <?php
+                if( have_rows('perevagi_spisok', $post_id) ):
+                    while( have_rows('perevagi_spisok', $post_id) ) : the_row();
+                        $image = get_sub_field('zobrazhennya_perevagi');
+                        $title = get_sub_field('zagolovok_perevagi');
+                        $desc = get_sub_field('poyasnennya_perevagi');
                         ?>
-                    <?php endwhile;
-                    ?>
-                <?php endif; ?>
-                <div class="col-auto">
-
+                        <div class="pluses__item">
+                            <div class="pluses__item-icon">
+                                <img src="<?php echo $image?>" alt="<?php echo $title?>">
+                            </div>
+                            <h4 class="pluses__item-title">
+                                <?php echo $title?>
+                            </h4>
+                            <div class="pluses__item-desc">
+                                <?php echo $desc?>
+                            </div>
+                        </div>
+                    <?php
+                    endwhile;
+                endif;
+                ?>
+            </div>
+            <div class="pluses__button">
+                <div class="pluses__form button-stroke">
+                    Замовити консультацію
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
+
 
 
 <?php get_footer(); ?>
