@@ -203,6 +203,23 @@ $post_id = get_the_ID();
             </div>
         </div>
     </section>
+    <section id="reviews" class="screen screen5 reviews">
+        <div class="reviews__design">
+            <img src="<?php echo get_template_directory_uri()?>/img/reviews-design.svg" alt="Декорацыя сайта">
+        </div>
+        <div class="reviews__image">
+            <img src="<?php the_field('zobrazhennya_na_fon-reviews', $post_id);?>" alt="<?php the_field('zagolovok-reviews', $post_id);?>">
+        </div>
+        <div class="reviews__container main-container">
+            <h2 class="reviews__untitle section-untitle">
+                <?php the_field('nadzagolovok-reviews', $post_id);?>
+            </h2>
+            <h3 class="reviews__title section-title">
+                <?php the_field('zagolovok-reviews', $post_id);?>
+            </h3>
+            <?php echo do_shortcode('[testimonial_view id="1"]')?>
+        </div>
+    </section>
 </main>
 
 
