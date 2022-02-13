@@ -39,11 +39,14 @@
     </div>
 </div>
 <div id="page" class="site">
-	<header id="header" class="header">
-        <div class="header__logo padding-left padding-right">
-            <?php
-            the_custom_logo();
-            ?>
+	<header id="header" class="header default">
+        <div class="header__logo">
+            <a class="header__logo-mob" href="<?php echo home_url(); ?>">
+
+            </a>
+            <a class="header__logo-desktop" href="<?php echo home_url(); ?>" style="background-image: url(<?php echo get_template_directory_uri()?>/img/logo.svg)">
+
+            </a>
         </div>
         <div class="header__top">
             <div class="header__contacts main-container">
