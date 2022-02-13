@@ -54,7 +54,7 @@ $post_id = get_the_ID();
                 <?php the_field('subtitle', $post_id);?>
             </h3>
 
-            <div class="banner__button button-stroke" data-aos="fade-right" data-aos-delay="700">
+            <div class="banner__button button-stroke js-form" data-aos="fade-right" data-aos-delay="700">
                 <?php the_field('napis_na_knopczi', $post_id);?>
             </div>
         </div>
@@ -145,7 +145,6 @@ $post_id = get_the_ID();
                                 <svg width="32" height="8" viewBox="0 0 32 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M28.1716 0.464562L31.3536 3.64654C31.5488 3.8418 31.5488 4.15839 31.3536 4.35365L28.1716 7.53563C27.9763 7.73089 27.6597 7.73089 27.4645 7.53563C27.2692 7.34037 27.2692 7.02378 27.4645 6.82852L29.7929 4.5001H0V3.5001H29.7929L27.4645 1.17167C27.2692 0.976407 27.2692 0.659824 27.4645 0.464562C27.6597 0.2693 27.9763 0.2693 28.1716 0.464562Z" fill="#4E6488"/>
                                 </svg>
-
                             </div>
                         </a>
                     <?php
@@ -157,8 +156,8 @@ $post_id = get_the_ID();
             if ($counter > 4){
                 ?>
                 <div class="branch__button">
-                    <div class="branch__show button-stroke js-show">
-                        Дивитись усі послуги
+                    <div class="branch__show button-stroke js-form">
+                        <?php the_field('napys_dyvytys_usi_poslugy', 'options');?>
                     </div>
                 </div>
                 <?php
@@ -202,8 +201,8 @@ $post_id = get_the_ID();
                 ?>
             </div>
             <div class="pluses__button">
-                <div class="pluses__form button-stroke">
-                    Замовити консультацію
+                <div class="pluses__form button-stroke js-form">
+                    <?php the_field('napys_zamovyty_konsultacziyu', 'options');?>
                 </div>
             </div>
         </div>

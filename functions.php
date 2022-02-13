@@ -133,6 +133,17 @@ function advocate_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Мови', 'advocate' ),
+            'id'            => 'locale',
+            'description'   => esc_html__( 'Додайте віджет мов', 'advocate' ),
+            'before_widget' => '',
+            'after_widget'  => '',
+            'before_title'  => '',
+            'after_title'   => '',
+        )
+    );
 }
 add_action( 'widgets_init', 'advocate_widgets_init' );
 

@@ -38,6 +38,29 @@
         <div class="preloader__item"></div>
     </div>
 </div>
+<div id="success-send" class="success-send" style="display: none">
+    <div class="success-send__popup">
+        <?php echo the_field('napys_danni_uspishno_nadislani', 'options')?>
+    </div>
+</div>
+<dic class="popup" style="display: none">
+    <div class="popup__modal">
+        <div class="popup__close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="3.88908" y1="3.88908" x2="11.6673" y2="11.6673" stroke="#4E6488"/>
+                <line x1="3.88912" y1="11.6673" x2="11.6673" y2="3.88909" stroke="#4E6488"/>
+            </svg>
+        </div>
+        <img class="popup__image" src="<?php echo the_field('fotografiya_u_formu_zvyazku', 'options')?>" alt="">
+        <div class="popup__title">
+            <?php echo the_field('napys_zamovyty_konsultacziyu', 'options')?>
+        </div>
+        <p class="popup__desc">
+            <?php echo the_field('opys_formy_zamovyty_konsultaczyu', 'options')?>
+        </p>
+        <?php echo do_shortcode('[contact-form-7 id="6" title="Замовити консультацію"]')?>
+    </div>
+</dic>
 <div id="page" class="site">
 	<header id="header" class="header default">
         <div class="header__logo">
@@ -69,6 +92,9 @@
                         <path d="M21.75 3.75H2.25C1.83516 3.75 1.5 4.08516 1.5 4.5V19.5C1.5 19.9148 1.83516 20.25 2.25 20.25H21.75C22.1648 20.25 22.5 19.9148 22.5 19.5V4.5C22.5 4.08516 22.1648 3.75 21.75 3.75ZM19.8563 6.30234L12.4617 12.0563C12.2789 12.1992 12.0234 12.1992 11.8406 12.0563L4.44375 6.30234C4.41587 6.28082 4.39541 6.25112 4.38526 6.21739C4.37511 6.18367 4.37576 6.14761 4.38713 6.11427C4.3985 6.08094 4.42002 6.052 4.44867 6.0315C4.47731 6.01101 4.51165 5.99999 4.54688 6H19.7531C19.7883 5.99999 19.8227 6.01101 19.8513 6.0315C19.88 6.052 19.9015 6.08094 19.9129 6.11427C19.9242 6.14761 19.9249 6.18367 19.9147 6.21739C19.9046 6.25112 19.8841 6.28082 19.8563 6.30234Z" fill="#4E6488"/>
                     </svg>
                     <a href="mailto:<?php echo the_field('e-mail', 'options')?>"><?php echo the_field('e-mail', 'options')?></a>
+                </div>
+                <div class="header__locale">
+                    <?php dynamic_sidebar('locale');?>
                 </div>
             </div>
         </div>
