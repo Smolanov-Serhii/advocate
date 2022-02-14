@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
 	<?php wp_head(); ?>
 </head>
 <script>
@@ -65,11 +66,40 @@
 	<header id="header" class="header default">
         <div class="header__logo">
             <a class="header__logo-mob" href="<?php echo home_url(); ?>">
-
+                <img src="<?php echo get_template_directory_uri()?>/img/logo-mob.svg" alt="Logo">
             </a>
             <a class="header__logo-desktop" href="<?php echo home_url(); ?>" style="background-image: url(<?php echo get_template_directory_uri()?>/img/logo.svg)">
 
             </a>
+        </div>
+        <div class="header__burger" style="display: none">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="header__mobile-menu" style="display: none">
+            <div class="header__locale">
+                <?php dynamic_sidebar('locale');?>
+            </div>
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'Top-Menu',
+                    'menu_id'        => 'top-mob-menu',
+                )
+            );
+            ?>
+            <div class="header__mobile-socials">
+                <a href="<?php the_field('instagram', 'options');?>" class="header__mobile-item">
+                    <img src="<?php echo get_template_directory_uri()?>/img/insta.svg" alt="Інстаграм">
+                </a>
+                <a href="<?php the_field('facebook', 'options');?>" class="header__mobile-item">
+                    <img src="<?php echo get_template_directory_uri()?>/img/fb.svg" alt="">
+                </a>
+                <a href="<?php the_field('twitter', 'options');?>" class="header__mobile-item">
+                    <img src="<?php echo get_template_directory_uri()?>/img/tw.svg" alt="">
+                </a>
+            </div>
         </div>
         <div class="header__top">
             <div class="header__contacts main-container">

@@ -16,7 +16,7 @@ $( document ).ready(function() {
             $('.header__logo').fadeIn(300);
         }
 
-        if ( $(this).scrollTop() > 100 && $menu.hasClass("default") ){
+        if ( $(this).scrollTop() > 100 && $menu.hasClass("default")  && $(window).innerWidth() > 1020 ){
             $menu.removeClass("default").addClass("moved");
         } else if($(this).scrollTop() <= 100 && $menu.hasClass("moved")) {
             $menu.removeClass("moved").addClass("default");
@@ -154,6 +154,16 @@ $( document ).ready(function() {
     if ($("#left-menu").length){
         $('#left-menu li:first-child').addClass('active');
     };
+    $(".header__burger").click( function(e) {
+        $('body').toggleClass('locked');
+        $('.header__mobile-menu').fadeToggle(300);
+        $('.header__burger').toggleClass('active');
+    });
+    $("#top-mob-menu a").click( function(e) {
+        $('body').toggleClass('locked');
+        $('.header__mobile-menu').fadeToggle(300);
+        $('.header__burger').toggleClass('active');
+    });
     $(".js-form").click( function(e) {
         $('.popup').fadeIn(300);
         $('body').addClass('locked');
@@ -203,7 +213,7 @@ $( document ).ready(function() {
         });
     };
     var swiper = new Swiper(".reviews__list", {
-        slidesPerView: 1,
+        slidesPerView: 3,
         centeredSlides: true,
         spaceBetween: 30,
         navigation: {

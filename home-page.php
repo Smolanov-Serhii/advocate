@@ -38,7 +38,10 @@ $post_id = get_the_ID();
     </aside>
     <section id="banner" class="banner screen screen1">
         <div class="banner__design">
-            <img src="<?php echo get_template_directory_uri()?>/img/design-banner.svg" alt="Декорацыя сайта">
+            <picture>
+                <source srcset="<?php echo get_template_directory_uri()?>/img/design-banner.svg" media="(min-width: 1024px)">
+                <img src="<?php echo get_template_directory_uri()?>/img/baner-design-mob.svg" alt="<?php echo the_field('title'. $post_id);?>">
+            </picture>
         </div>
         <div class="banner__bg">
             <img src="<?php the_field('zobrazhennya_na_fon', $post_id);?>" alt="<?php echo the_field('title'. $post_id);?>">
@@ -167,7 +170,10 @@ $post_id = get_the_ID();
     </section>
     <section id="pluses" class="pluses screen screen4 main-container">
         <div class="pluses__design">
-            <img src="<?php echo get_template_directory_uri()?>/img/design-pluses.svg" alt="Декорацыя сайта">
+            <picture>
+                <source srcset="<?php echo get_template_directory_uri()?>/img/design-banner.svg" media="(min-width: 1024px)">
+                <img src="<?php echo get_template_directory_uri()?>/img/baner-design-mob.svg" alt="<?php the_field('zagolovok-pluses', $post_id);?>">
+            </picture>
         </div>
         <div class="pluses__container">
             <h3 class="pluses__untitle section-untitle" data-aos="fade-right" data-aos-delay="100">
@@ -243,31 +249,33 @@ $post_id = get_the_ID();
                             $stars = get_field('oczinka', $postpers_id);
                             ?>
                             <div class="reviews__item swiper-slide">
-                                <div class="reviews__item-image">
-                                    <img src="<?php echo $image ?>" alt="<?php echo $name ?>">
-                                </div>
-                                <h3 class="reviews__item-name">
-                                    <?php echo $name ?>
-                                </h3>
-                                <h4 class="reviews__item-work">
-                                    <?php echo $work ?>
-                                </h4>
-                                <div class="reviews__item-content">
-                                    <?php echo $content ?>
-                                </div>
-                                <div class="reviews__item-stars">
-                                    <div class="rating-result">
-                                        <?php
-                                        $i = 1;
-                                        while ($i <= 5) {
-                                            if ($i <= $stars){
-                                                echo '<span class="active"></span>';
-                                            } else {
-                                                echo '<span></span>';
+                                <div class="wrapper">
+                                    <div class="reviews__item-image">
+                                        <img src="<?php echo $image ?>" alt="<?php echo $name ?>">
+                                    </div>
+                                    <h3 class="reviews__item-name">
+                                        <?php echo $name ?>
+                                    </h3>
+                                    <h4 class="reviews__item-work">
+                                        <?php echo $work ?>
+                                    </h4>
+                                    <div class="reviews__item-content">
+                                        <?php echo $content ?>
+                                    </div>
+                                    <div class="reviews__item-stars">
+                                        <div class="rating-result">
+                                            <?php
+                                            $i = 1;
+                                            while ($i <= 5) {
+                                                if ($i <= $stars){
+                                                    echo '<span class="active"></span>';
+                                                } else {
+                                                    echo '<span></span>';
+                                                }
+                                                $i++;
                                             }
-                                            $i++;
-                                        }
-                                        ?>
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -285,11 +293,19 @@ $post_id = get_the_ID();
     </section>
     <section id="contacts" class="contacts screen screen6">
         <div class="contacts__container">
-            <div class="contacts__left padding-left">
+            <div class="contacts__mob main-container" style="display: none">
                 <h2 class="contacts__untitle section-untitle" data-aos="fade-right" data-aos-delay="100">
                     <?php the_field('nadzagolovok-contacts', $post_id);?>
                 </h2>
                 <h3 class="contacts__title section-title" data-aos="fade-right" data-aos-delay="300">
+                    <?php the_field('zagolovok-contacts', $post_id);?>
+                </h3>
+            </div>
+            <div class="contacts__left padding-left">
+                <h2 class="contacts__untitle section-untitle contacts__dif" data-aos="fade-right" data-aos-delay="100">
+                    <?php the_field('nadzagolovok-contacts', $post_id);?>
+                </h2>
+                <h3 class="contacts__title section-title contacts__dif" data-aos="fade-right" data-aos-delay="300">
                     <?php the_field('zagolovok-contacts', $post_id);?>
                 </h3>
                 <div class="contacts__list" data-aos="fade-up" data-aos-delay="500">
@@ -303,9 +319,12 @@ $post_id = get_the_ID();
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M21.9954 3.11126C21.9104 3.17085 21.7987 3.32034 21.7473 3.44345C21.6669 3.63591 21.6669 3.69863 21.7473 3.8911C21.8866 4.22474 22.0838 4.33164 22.56 4.33164C22.7854 4.33164 23.2793 4.36293 23.6576 4.40127C29.9654 5.03953 34.9617 10.0374 35.5998 16.3472C35.6381 16.7256 35.6694 17.2197 35.6694 17.4452C35.6694 17.9215 35.7763 18.1187 36.1098 18.2581C36.3022 18.3385 36.3649 18.3385 36.5573 18.2581C37.0154 18.0666 37.075 17.7505 36.9298 16.2807C36.4843 11.7717 34.0556 7.80298 30.211 5.30209C29.4064 4.77863 27.8836 4.05533 26.9252 3.74135C25.1387 3.15604 22.4263 2.8093 21.9954 3.11126ZM22.0102 7.11768C21.6437 7.34117 21.592 7.84344 21.9066 8.12466C22.0797 8.27953 22.1722 8.30159 22.8238 8.34324C27.6558 8.65231 31.3501 12.3478 31.6591 17.1813C31.7009 17.8358 31.7223 17.9251 31.8798 18.1014C32.1907 18.4495 32.7607 18.3331 32.9469 17.8835C33.1274 17.4476 32.865 15.5786 32.4389 14.264C31.4661 11.2635 28.9227 8.67117 25.9338 7.63383C25.092 7.34164 24.2497 7.14797 23.4348 7.05928C22.519 6.95962 22.2513 6.97059 22.0102 7.11768ZM7.40293 7.90369C7.21676 7.97026 6.94426 8.11995 6.79741 8.23628C6.2273 8.68798 4.71174 10.3317 4.32766 10.9149C2.99542 12.9378 2.64899 15.3534 3.36462 17.6305C3.68907 18.6626 5.01593 21.1195 6.30042 23.0663C7.76397 25.2847 9.19577 27.0251 11.2226 29.0497C13.212 31.0367 14.6942 32.2623 16.8404 33.6943C18.4015 34.736 20.4547 35.9063 21.4968 36.3484C23.5405 37.2154 25.7335 37.2172 27.7889 36.3535C28.413 36.0913 29.0287 35.7126 29.6587 35.2035C30.3877 34.6144 31.8292 33.124 31.9833 32.7999C32.162 32.4241 32.192 31.7356 32.0488 31.294C31.9417 30.9638 31.7366 30.7416 29.0363 28.0304C25.8006 24.7817 25.7807 24.7657 24.981 24.7683C24.2394 24.7709 24.0532 24.8947 22.5522 26.384C21.8216 27.1089 21.1193 27.7563 20.9914 27.8228C20.8428 27.8999 20.6213 27.9424 20.3777 27.9407C20.0197 27.938 19.9549 27.9103 19.3151 27.4858C18.9403 27.2372 18.3198 26.7917 17.9363 26.496C17.3113 26.0141 17.209 25.9582 16.9509 25.9576C16.7172 25.957 16.6327 25.992 16.5025 26.1433C16.3171 26.359 16.2872 26.7456 16.4393 26.9627C16.635 27.2422 18.6558 28.7022 19.3046 29.0329C19.7185 29.2439 20.3639 29.3365 20.8253 29.2512C21.6181 29.1045 21.841 28.9464 23.3112 27.4879C24.1372 26.6685 24.7469 26.1153 24.853 26.089C24.96 26.0627 25.1026 26.0849 25.2183 26.1462C25.3227 26.2014 26.626 27.4678 28.1146 28.9604C30.7838 31.6369 30.821 31.6779 30.821 31.9424C30.821 32.2011 30.783 32.2481 29.7418 33.2723C28.6078 34.3879 28.2129 34.6897 27.388 35.0709C26.4896 35.4861 25.7425 35.6446 24.6775 35.6458C23.2178 35.6474 22.5189 35.4397 20.7258 34.4715C15.8467 31.8368 12.0255 28.5645 8.72687 24.1963C7.06381 21.994 5.12671 18.718 4.661 17.3201C4.17849 15.8716 4.23109 14.266 4.80798 12.8374C5.19041 11.8903 5.50761 11.4501 6.6418 10.2924C7.24247 9.67929 7.80349 9.16015 7.88843 9.13882C7.97331 9.1175 8.12673 9.13484 8.22935 9.17729C8.33189 9.21981 9.64634 10.4879 11.1503 11.9952C13.8097 14.6605 13.8849 14.7429 13.8849 14.9931C13.8849 15.2389 13.824 15.3118 12.5269 16.6188C11.3376 17.8175 11.1424 18.0442 10.9545 18.4459C10.7888 18.8002 10.7333 19.0201 10.7106 19.4134C10.6666 20.1738 10.7942 20.5211 11.5078 21.5819C12.3177 22.786 12.4612 22.934 12.8186 22.934C13.039 22.934 13.1392 22.8929 13.2923 22.7398C13.624 22.408 13.5741 22.2259 12.8801 21.2387C12.1735 20.2336 12.0287 19.9487 12.0267 19.5602C12.0241 19.0494 12.1704 18.8491 13.6104 17.3912C15.131 15.8518 15.2132 15.727 15.2132 14.9604C15.2132 14.2123 15.1262 14.1049 11.9777 10.9654C10.0246 9.01797 9.04328 8.0856 8.83918 7.98355C8.43278 7.78045 7.83955 7.74743 7.40293 7.90369ZM22.0759 11.0695C21.6585 11.2565 21.5679 11.8083 21.9051 12.1097C22.0703 12.2573 22.1893 12.2929 22.6533 12.3334C24.5371 12.4978 26.0232 13.4214 26.9618 15.011C27.3271 15.6296 27.5547 16.3565 27.6465 17.1984C27.7133 17.8099 27.7486 17.9377 27.8968 18.1036C28.0289 18.2516 28.1272 18.2967 28.3176 18.2967C28.8963 18.2967 29.0716 17.9467 28.9663 17.0017C28.7071 14.677 27.3533 12.7292 25.2753 11.6913C24.2096 11.159 22.5821 10.8427 22.0759 11.0695ZM21.939 15.1256C21.7764 15.2437 21.6643 15.5751 21.7086 15.807C21.7594 16.0726 22.0324 16.275 22.406 16.3241C23.1219 16.418 23.5868 16.8831 23.6807 17.5992C23.7523 18.1453 24.0792 18.3941 24.561 18.2692C24.861 18.1914 24.9955 17.9575 24.9857 17.5303C24.9635 16.5663 24.3841 15.6991 23.46 15.2468C23.0018 15.0226 22.172 14.9564 21.939 15.1256ZM14.3442 24.1155C13.9871 24.4347 14.0822 24.9827 14.5269 25.1685C14.7114 25.2456 14.8067 25.2503 14.9863 25.1911C15.45 25.0379 15.5718 24.4783 15.2183 24.1248C14.9569 23.8633 14.6303 23.8598 14.3442 24.1155Z" fill="#E2C4A2"/>
                         </svg>
-                        <a href="tel:<?php echo the_field('telefon_1', 'options')?>"><?php echo the_field('telefon_1', 'options')?></a>
-                        <span>;&nbsp</span>
-                        <a href="tel:<?php echo the_field('telefon_2', 'options')?>"><?php echo the_field('telefon_2', 'options')?></a>
+                        <span class="row">
+                            <a href="tel:<?php echo the_field('telefon_1', 'options')?>"><?php echo the_field('telefon_1', 'options')?></a>
+                            <span>;&nbsp</span>
+                            <a href="tel:<?php echo the_field('telefon_2', 'options')?>"><?php echo the_field('telefon_2', 'options')?></a>
+                        </span>
+
                     </div>
                     <div class="contacts__contacts-item">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
