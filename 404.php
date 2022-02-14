@@ -7,54 +7,158 @@
  * @package advocate
  */
 
-get_header();
+wp_head();
 ?>
 
 	<main id="primary" class="site-main">
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'advocate' ); ?></h1>
-			</header><!-- .page-header -->
+        <div class="page-404">
+            <div class="container container-star">
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-1"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+                <div class="star-2"></div>
+            </div>
+            <div class="container container-bird">
+                <div class="bird bird-anim">
+                    <div class="bird-container">
+                        <div class="wing wing-left">
+                            <div class="wing-left-top"></div>
+                        </div>
+                        <div class="wing wing-right">
+                            <div class="wing-right-top"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bird bird-anim">
+                    <div class="bird-container">
+                        <div class="wing wing-left">
+                            <div class="wing-left-top"></div>
+                        </div>
+                        <div class="wing wing-right">
+                            <div class="wing-right-top"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bird bird-anim">
+                    <div class="bird-container">
+                        <div class="wing wing-left">
+                            <div class="wing-left-top"></div>
+                        </div>
+                        <div class="wing wing-right">
+                            <div class="wing-right-top"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bird bird-anim">
+                    <div class="bird-container">
+                        <div class="wing wing-left">
+                            <div class="wing-left-top"></div>
+                        </div>
+                        <div class="wing wing-right">
+                            <div class="wing-right-top"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bird bird-anim">
+                    <div class="bird-container">
+                        <div class="wing wing-left">
+                            <div class="wing-left-top"></div>
+                        </div>
+                        <div class="wing wing-right">
+                            <div class="wing-right-top"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bird bird-anim">
+                    <div class="bird-container">
+                        <div class="wing wing-left">
+                            <div class="wing-left-top"></div>
+                        </div>
+                        <div class="wing wing-right">
+                            <div class="wing-right-top"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-title">
+                    <div class="title">
+                        <div class="number">4</div>
+                        <div class="moon">
+                            <div class="face">
+                                <div class="mouth"></div>
+                                <div class="eyes">
+                                    <div class="eye-left"></div>
+                                    <div class="eye-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="number">4</div>
+                    </div>
+                    <div class="subtitle">УПС! Неверно указана страница</div>
+                    <a class="button-404" href="<?php echo home_url(); ?>">На главную</a>
+                </div>
+            </div>
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'advocate' ); ?></p>
+        </div>
 
-					<?php
-					get_search_form();
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'advocate' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$advocate_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'advocate' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$advocate_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+    </main><!-- #main -->
 
 <?php
-get_footer();
+

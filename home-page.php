@@ -136,7 +136,7 @@ $post_id = get_the_ID();
                         $counter++;
                         if ($counter > 4){$class='hidden';}
                             ?>
-                        <a href="<?php the_permalink();?>" class="branch__item <?php echo $class?>">
+                        <div href="<?php the_permalink();?>" class="branch__item <?php echo $class?>">
                             <div class="branch__image">
                                 <img src="<?php echo $image;?>" alt="<?php the_title();?>">
                             </div>
@@ -149,7 +149,7 @@ $post_id = get_the_ID();
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M28.1716 0.464562L31.3536 3.64654C31.5488 3.8418 31.5488 4.15839 31.3536 4.35365L28.1716 7.53563C27.9763 7.73089 27.6597 7.73089 27.4645 7.53563C27.2692 7.34037 27.2692 7.02378 27.4645 6.82852L29.7929 4.5001H0V3.5001H29.7929L27.4645 1.17167C27.2692 0.976407 27.2692 0.659824 27.4645 0.464562C27.6597 0.2693 27.9763 0.2693 28.1716 0.464562Z" fill="#4E6488"/>
                                 </svg>
                             </div>
-                        </a>
+                        </div>
                     <?php
                     }
                 }
