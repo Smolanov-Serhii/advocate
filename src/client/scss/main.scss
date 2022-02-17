@@ -2311,3 +2311,107 @@ body{
     }
   }
 }
+.direction{
+  padding-bottom: 0; //82px
+  //@media screen and (max-width: 1024px) {
+  //  padding-bottom: 50px;
+  //}
+  //@media screen and (max-width: 768px) {
+  //  padding-bottom: 30px;
+  //}
+  @media screen and (max-width: 500px) {
+    padding-bottom: 0;
+  }
+
+  &__title{
+    font-family: 'Prata', serif;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 110%;
+    color: #FFFFFF;
+    display: block;
+    position: relative;
+    margin: 0;
+    @media screen and (max-width: 1024px) {
+      font-size: 54px;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 44px;
+    }
+    @media screen and (max-width: 500px) {
+      font-size: 36px;
+    }
+  }
+  &__header{
+    position: relative;
+    height: 561px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 6.5rem;
+    @media screen and (max-width: 1024px) {
+      height: 500px;
+    }
+    @media screen and (max-width: 768px) {
+      height: 400px;
+    }
+    @media screen and (max-width: 500px) {
+      height: 300px;
+    }
+  }
+  &__design{
+    position: absolute;
+    right: 0;
+    bottom: -200px;
+    pointer-events: none;
+  }
+  &__background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    picture{
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: hidden;
+    }
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__content{
+    margin-top: 40px;
+    p, li, a, span, b{
+      font-weight: 300;
+      font-size: 1.4rem;
+      line-height: 130%;
+      color: #FFFFFF;
+      @media screen and (max-width: 500px) {
+        font-size: 1.2rem;
+      }
+    }
+    h1,h2,h3,h4,h5,h6{
+      color: white;
+    }
+    h5{
+      font-weight: bold;
+      font-size: 1.8rem;
+      color: white;
+      @media screen and (max-width: 768px) {
+        font-size: 1.7rem;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 1.6rem;
+      }
+    }
+    b, strong {
+      font-weight: bolder;
+    }
+    p,li{
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -14,14 +14,14 @@
 	<footer id="footer" class="footer wide-container">
 		<div class="footer__container">
             <div class="footer__logo">
-                <a href="">
+                <a href="<?php echo home_url(); ?>">
                     <img src="<?php echo get_template_directory_uri()?>/img/logo-footer.svg" alt="">
                 </a>
             </div>
             <div class="footer__navigate">
                 <div class="footer__main">
                     <div class="footer__title">
-                        Меню
+                        <?php the_field('napys_menyu', 'options');?>
                     </div>
                     <div class="footer__menu">
                         <?php
@@ -36,7 +36,7 @@
                 </div>
                 <div class="footer__directions">
                     <div class="footer__title">
-                        Галузі практики
+                        <?php the_field('napys_galuzi_praktyky', 'options');?>
                     </div>
                     <div class="footer__menu">
                         <?php
@@ -51,11 +51,11 @@
                 </div>
                 <div class="footer__contacts">
                     <div class="footer__title">
-                        Контакти
+                        <?php the_field('napys_kontakty', 'options');?>
                     </div>
                     <div class="footer__params">
                         <div class="footer__contacts-item">
-                            <span><?php echo the_field('adress', 'options')?></span>
+                            <a href="<?php echo home_url(); ?>/#contacts"><?php echo the_field('adress', 'options')?></a>
                         </div>
                         <div class="footer__contacts-item">
                             <a href="tel:<?php echo the_field('telefon_1', 'options')?>"><?php echo the_field('telefon_1', 'options')?></a>

@@ -115,7 +115,7 @@ $( document ).ready(function() {
                     nav.find('li').removeClass('active');
                     // section.removeClass('active');
                     // $(this).addClass('active');
-                    nav.find('a[href="#' + $(this).attr('id') + '"]').closest('li').addClass('active');
+                    nav.find('a[href="http://advocate.front-end-dev.com.ua/#' + $(this).attr('id') + '"]').closest('li').addClass('active');
                 }
             });
         });
@@ -171,6 +171,13 @@ $( document ).ready(function() {
     $(".popup__close").click( function(e) {
         $('.popup').fadeOut(300);
         $('body').removeClass('locked');
+    });
+    $(".js-show-all").click( function(e) {
+        $(this).fadeOut(300);
+        $('.branch__item ')
+            .css("display", "flex")
+            .hide()
+            .fadeIn(300);
     });
     if ($(".popup").length){
         document.addEventListener( 'wpcf7mailsent', function( event ) {
