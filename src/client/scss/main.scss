@@ -24,6 +24,7 @@ $fon: $basefont / 10;
   font-family: 'Nunito Sans', sans-serif;
   font-style: normal;
 }
+
 img{
   max-width: 100%;
 }
@@ -1105,6 +1106,7 @@ body{
     position: absolute;
     right: 0;
     top: -37rem;
+    pointer-events: none;
   }
   &__button{
     text-align: center;
