@@ -2396,6 +2396,26 @@ body{
     h1,h2,h3,h4,h5,h6{
       color: white;
     }
+    ul,ol{
+      list-style: none;
+      margin: 0;
+      li{
+        position: relative;
+        margin-bottom: 0.6em;
+        list-style: none;
+        &:before{
+          content: "";
+          position: absolute;
+          width: 7px;
+          height: 7px;
+          background-color: #e2c4a2;
+          border-radius: 50%;
+          left: 0;
+          top: 0;
+
+        }
+      }
+    }
     h5{
       font-weight: bold;
       font-size: 1.8rem;
@@ -2412,6 +2432,28 @@ body{
     }
     p,li{
       margin-bottom: 20px;
+    }
+  }
+  ul,ol{
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    li{
+      position: relative;
+      margin-bottom: 0.6em;
+      list-style: none;
+      padding-left: 25px;
+      &:before{
+        content: "";
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        background-color: #e2c4a2;
+        border-radius: 50%;
+        left: 0;
+        top: 4px;
+      }
+
     }
   }
 }
